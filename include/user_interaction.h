@@ -13,16 +13,6 @@ typedef enum CalledFlag
 } CalledFlag;
 
 //----------------------------------------
-//! Parses terminal arguments
-//!
-//! @param [in] argc Number of arguments
-//! @param [in] argv Arguments
-//!
-//! @return enum CalledFlag
-//----------------------------------------
-CalledFlag proccess_flags(const int argc, const char **argv);
-
-//----------------------------------------
 //! Print help message
 //!
 //----------------------------------------
@@ -45,16 +35,18 @@ void printFewArguments(void);
 //!
 //! @param [in] argv Arguments
 //!
+//! @return 0 or 1
 //----------------------------------------
-void forward_sort(const char** argv);
+int forward_sort(const char** argv);
 
 //-----------------------------------------
 //! Sprts arguments in `right to left` way
 //!
 //! @param [in] argv Arguments
 //!
+//! @return 0 or 1
 //-----------------------------------------
-void reverse_sort(const char** argv);
+int reverse_sort(const char** argv);
 
 //-----------------------------------------------------
 //! Prints that flag input is empty or no sush flag
@@ -65,5 +57,15 @@ void reverse_sort(const char** argv);
 //-----------------------------------------------------
 void emptyInputMessage(const char* input_parameter,
                        const char* solver);
+
+//----------------------------------------
+//! Parses terminal arguments
+//!
+//! @param [in] argc Number of arguments
+//! @param [in] argv Arguments
+//!
+//! @return enum CalledFlag
+//----------------------------------------
+CalledFlag proccess_flags(const int argc, const char **argv);
 
 #endif // USER_INTERACTION_H

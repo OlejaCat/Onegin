@@ -1,0 +1,7 @@
+*.o
+onegin
+compile_commands.json
+logger.txt
+.cache
+.gitignore
+.gitmodules

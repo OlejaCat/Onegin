@@ -1,6 +1,6 @@
 #include "logger.h"
-#include "assert.h"
 #include "user_interaction.h"
+#include "helpful_functions.h"
 
 
 int main(const int argc, const char** argv)
@@ -39,7 +39,7 @@ int main(const int argc, const char** argv)
             break;
 
         default:
-            assert(0 && "Something went wrong");
+            assertStrict(0 && "Something went wrong");
             break;
     }
 

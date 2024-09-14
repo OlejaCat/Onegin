@@ -25,7 +25,23 @@ typedef struct Text
 //! @param [out] text Structure
 //!
 //! @return state
-//-----------------------------------------
+//----------------------------------------
 int processeBuffer(Text* text);
+
+//----------------------------------------
+//! Bubble sorts forward a text
+//!
+//! @param [in] text Structure
+//!
+//----------------------------------------
+void callBubbleSortBackward(Text text);
+
+//----------------------------------------
+//! Bubble sorts backward a text
+//!
+//! @param [in] text Structure
+//!
+//----------------------------------------
+void callBubbleSortForward(Text text);
 
 #endif // ONEGIN_LOGIC_H

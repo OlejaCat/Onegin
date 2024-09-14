@@ -18,8 +18,9 @@ void print_table_of_pointers(Text text);
 //! @param [in] pointer_to_second_string Pointer second
 //!
 //! @return Difference of strings
-int myStrcmpForward(const void* pointer_to_first_string,
-                    const void* pointer_to_second_string);
+//---------------------------------------------------------------------------
+int myStrcmpForwardPointer(const void* pointer_to_first_string,
+                           const void* pointer_to_second_string);
 
 //---------------------------------------------------------------------------
 //! Compare two strings from right to left (only compare alphabetic letters)
@@ -28,7 +29,8 @@ int myStrcmpForward(const void* pointer_to_first_string,
 //! @param [in] pointer_to_second_string Pointer second
 //!
 //! @return Difference of strings
-int myStrcmpBackward(const void* pointer_to_first_string,
-                     const void* pointer_to_second_string);
+//---------------------------------------------------------------------------
+int myStrcmpBackwardPointer(const void* pointer_to_first_string,
+                            const void* pointer_to_second_string);
 
 #endif // STRING_FUNCTIONS_H

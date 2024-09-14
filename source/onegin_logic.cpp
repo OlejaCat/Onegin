@@ -6,6 +6,8 @@
 #include <stdbool.h>
 
 #include "logger.h"
+#include "sorting_algorithms.h"
+#include "string_functions.h"
 
 const size_t SIZE_OF_POINT_ARRAY = 512;
 
@@ -52,4 +54,22 @@ int processeBuffer(Text* text)
     text->number_of_lines = number_of_line;
 
     return EXIT_SUCCESS;
+}
+
+
+void callBubbleSortBackward(Text text)
+{
+    bubble_sort(text.line_pointers,
+                text.number_of_lines,
+                sizeof(LinePointers),
+                myStrcmpBackwardPointer);
+}
+
+
+void callBubbleSortForward(Text text)
+{
+    bubble_sort(text.line_pointers,
+                text.number_of_lines,
+                sizeof(LinePointers),
+                myStrcmpForwardPointer);
 }

@@ -8,7 +8,7 @@
 #include "helpful_functions.h"
 
 FileState readDataFromFile(Text*       fill_text_information,
-                     const char* input_file_path)
+                           const char* input_file_path)
 {
     assert(fill_text_information != NULL);
     assert(input_file_path       != NULL);
@@ -100,8 +100,9 @@ FileState writeOriginalDataToFile(Text        text_information,
 
     for (size_t element = 0; element < text_information.size_of_file; element++)
     {
-        output_data[element] = text_information.text_buffer[element] == '\0' ?
-                               '\n' : text_information.text_buffer[element];
+        output_data[element] = text_information.text_buffer[element] == '\0'
+                               ? '\n'
+                               : text_information.text_buffer[element];
     }
 
     size_t writed = fwrite(output_data,

@@ -25,6 +25,7 @@ int bubble_sort(void*              data,
                 swap(data_ + j * size_of_element,
                      data_ + (j + 1) * size_of_element,
                      size_of_element);
+
                 swapped = true;
             }
         }
