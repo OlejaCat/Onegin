@@ -19,7 +19,14 @@ size_t quick_sort_partition(uint8_t*           data,
     int size_of_element_ = (int)size_of_element;
     int size_            = (int)size;
 
-    uint8_t* pivot = data + (size_ - 1) * size_of_element_;
+    uint8_t* pivot = data + (rand() % size_) * size_of_element_;
+    uint8_t* end   = data + (size_ - 1) * size_of_element_;
+
+    if (end != pivot)
+    {
+        swap(pivot, end, size_of_element);
+        pivot = end;
+    }
 
     Log(LogLevel_INFO, "pivot: %d", *pivot);
     int i = -1;
@@ -50,6 +57,8 @@ void quick_sort(void*              data,
                 size_t             size_of_element,
                 compare_function_t compare_function)
 {
+    assertStrict(data != NULL);
+
     uint8_t* data_ = (uint8_t*)data;
 
     if (size > 1)
