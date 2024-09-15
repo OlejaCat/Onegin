@@ -36,7 +36,8 @@ int forward_sort(const char** argv)
         return EXIT_FAILURE;
     }
 
-    callBubbleSortForward(text_of_file);
+    callQuickSortForward(text_of_file);
+    // callBubbleSortForward(text_of_file);
 
     writeDataToFile(text_of_file, argv[3]);
 
@@ -54,7 +55,8 @@ int reverse_sort(const char** argv)
         return EXIT_FAILURE;
     }
 
-    callBubbleSortBackward(text_of_file);
+    callQuickSortBackward(text_of_file);
+    // callBubbleSortBackward(text_of_file);
 
     writeDataToFile(text_of_file, argv[3]);
 

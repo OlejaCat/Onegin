@@ -73,3 +73,21 @@ void callBubbleSortForward(Text text)
                 sizeof(LinePointers),
                 myStrcmpForwardPointer);
 }
+
+
+void callQuickSortBackward(Text text)
+{
+    quick_sort(text.line_pointers,
+               text.number_of_lines,
+               sizeof(LinePointers),
+               myStrcmpBackwardPointer);
+}
+
+
+void callQuickSortForward(Text text)
+{
+    quick_sort(text.line_pointers,
+               text.number_of_lines,
+               sizeof(LinePointers),
+               myStrcmpForwardPointer);
+}

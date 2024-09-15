@@ -29,7 +29,7 @@ typedef struct Text
 int processeBuffer(Text* text);
 
 //----------------------------------------
-//! Bubble sorts forward a text
+//! Bubble sorts backward a text
 //!
 //! @param [in] text Structure
 //!
@@ -37,11 +37,27 @@ int processeBuffer(Text* text);
 void callBubbleSortBackward(Text text);
 
 //----------------------------------------
-//! Bubble sorts backward a text
+//! Bubble sorts forward a text
 //!
 //! @param [in] text Structure
 //!
 //----------------------------------------
 void callBubbleSortForward(Text text);
+
+//----------------------------------------
+//! Quick sorts backward a text
+//!
+//! @param [in] text Structure
+//!
+//----------------------------------------
+void callQuickSortBackward(Text text);
+
+//----------------------------------------
+//! Quick sorts forward a text
+//!
+//! @param [in] text Structure
+//!
+//----------------------------------------
+void callQuickSortForward(Text text);
 
 #endif // ONEGIN_LOGIC_H

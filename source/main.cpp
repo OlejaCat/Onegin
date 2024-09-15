@@ -1,6 +1,7 @@
 #include "logger.h"
 #include "user_interaction.h"
 #include "helpful_functions.h"
+#include "sorting_algorithms.h"
 
 
 int main(const int argc, const char** argv)
