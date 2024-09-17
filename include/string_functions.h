@@ -6,7 +6,7 @@
 //-----------------------------------------
 //! Prints changed text
 //!
-//! @param [in] text Text
+//! @param [in] text Structure of text
 //!
 //-----------------------------------------
 void print_table_of_pointers(Text text);

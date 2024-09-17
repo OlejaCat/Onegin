@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-// structures
+// structures ----------------------------------------------------------------------------------------------------------
 
 typedef struct LinePointers
 {
@@ -19,8 +19,14 @@ typedef struct Text
     size_t        number_of_lines;
 } Text;
 
+// functions -----------------------------------------------------------------------------------------------------------
+
 //-----------------------------
+//! Clear text structure
 //!
+//! @param [in] text Struct of text
+//!
+//! @return just 0
 //-----------------------------
 int clearAllBuffers(Text text);
 

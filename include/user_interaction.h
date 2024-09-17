@@ -1,7 +1,6 @@
 #ifndef USER_INTERACTION_H
 #define USER_INTERACTION_H
 
-
 typedef enum CalledFlag
 {
     CalledFlag_HELP           =  0,

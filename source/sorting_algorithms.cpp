@@ -10,6 +10,7 @@
 
 // static --------------------------------------------------------------------------------------------------------------
 
+
 //----------------------------------------------------------------
 //! Quick sort partition
 //!
@@ -23,46 +24,11 @@
 static size_t quickSortPartition(uint8_t*           data,
                                  size_t             size,
                                  size_t             size_of_element,
-                                 compare_function_t compare_function)
-{
-    assertStrict(data != NULL);
-    assertStrict(size > 1);
+                                 compare_function_t compare_function);
 
-    int size_of_element_ = (int)size_of_element;
-    int size_            = (int)size;
 
-    uint8_t* pivot = data + (rand() % size_) * size_of_element_;
-    uint8_t* end   = data + (size_ - 1) * size_of_element_;
+// global --------------------------------------------------------------------------------------------------------------
 
-    if (end != pivot)
-    {
-        swap(pivot, end, size_of_element);
-        pivot = end;
-    }
-
-    Log(LogLevel_INFO, "pivot: %d", *pivot);
-    int i = -1;
-
-    for (int j = 0; j < size_ - 1; j++)
-    {
-        if (compare_function(pivot, data + j * size_of_element_) > 0)
-        {
-            i++;
-            swap(data + i * size_of_element_,
-                 data + j * size_of_element_,
-                 size_of_element);
-        }
-    }
-
-    swap(data + (i + 1) * size_of_element_,
-         data + (size_ - 1) * size_of_element_,
-         size_of_element);
-
-    Log(LogLevel_INFO, "partition is: %d", i + 1);
-    return (size_t)i + 1;
-}
-
-// public --------------------------------------------------------------------------------------------------------------
 
 void quickSort(void*              data,
                size_t             size,
@@ -121,4 +87,50 @@ void bubbleSort(void*              data,
             break;
         }
     }
+}
+
+
+// static --------------------------------------------------------------------------------------------------------------
+
+
+static size_t quickSortPartition(uint8_t*           data,
+                                 size_t             size,
+                                 size_t             size_of_element,
+                                 compare_function_t compare_function)
+{
+    assertStrict(data != NULL);
+    assertStrict(size > 1);
+
+    int size_of_element_ = (int)size_of_element;
+    int size_            = (int)size;
+
+    uint8_t* pivot = data + (rand() % size_) * size_of_element_;
+    uint8_t* end   = data + (size_ - 1) * size_of_element_;
+
+    if (end != pivot)
+    {
+        swap(pivot, end, size_of_element);
+        pivot = end;
+    }
+
+    Log(LogLevel_INFO, "pivot: %d", *pivot);
+    int i = -1;
+
+    for (int j = 0; j < size_ - 1; j++)
+    {
+        if (compare_function(pivot, data + j * size_of_element_) > 0)
+        {
+            i++;
+            swap(data + i * size_of_element_,
+                 data + j * size_of_element_,
+                 size_of_element);
+        }
+    }
+
+    swap(data + (i + 1) * size_of_element_,
+         data + (size_ - 1) * size_of_element_,
+         size_of_element);
+
+    Log(LogLevel_INFO, "partition is: %d", i + 1);
+    return (size_t)i + 1;
 }

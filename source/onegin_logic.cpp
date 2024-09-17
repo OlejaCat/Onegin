@@ -12,13 +12,6 @@
 const size_t SIZE_OF_POINT_ARRAY = 4;
 const size_t SCALE_FACTOR        = 2;
 
-int clearAllBuffers(Text text)
-{
-    free(text.text_buffer);
-    free(text.line_pointers);
-
-    return 0;
-}
 
 int processeBuffer(Text* text)
 {
@@ -74,6 +67,15 @@ int processeBuffer(Text* text)
 }
 
 
+int clearAllBuffers(Text text)
+{
+    free(text.text_buffer);
+    free(text.line_pointers);
+
+    return 0;
+}
+
+
 void callBubbleSortBackward(Text text)
 {
     bubbleSort(text.line_pointers,
@@ -108,3 +110,4 @@ void callQuickSortForward(Text text)
               sizeof(LinePointers),
               myStrcmpForwardPointer);
 }
+
