@@ -9,13 +9,23 @@
 #include "sorting_algorithms.h"
 #include "string_functions.h"
 
-const size_t SIZE_OF_POINT_ARRAY = 512;
+const size_t SIZE_OF_POINT_ARRAY = 4;
+const size_t SCALE_FACTOR        = 2;
+
+int clearAllBuffers(Text text)
+{
+    free(text.text_buffer);
+    free(text.line_pointers);
+
+    return 0;
+}
 
 int processeBuffer(Text* text)
 {
     assert(text != NULL);
 
-    LinePointers* pointer_array = (LinePointers*)calloc(SIZE_OF_POINT_ARRAY, sizeof(LinePointers));
+    size_t size_of_array = SIZE_OF_POINT_ARRAY;
+    LinePointers* pointer_array = (LinePointers*)calloc(size_of_array, sizeof(LinePointers));
     size_t number_of_line = 0;
 
     LinePointers temp_pointer = {};
@@ -36,6 +46,13 @@ int processeBuffer(Text* text)
             text->text_buffer[number_of_element] = '\0';
 
             temp_pointer.length_of_line = (size_t)(text->text_buffer + number_of_element - temp_pointer.start_of_line);
+
+            if (number_of_line == size_of_array)
+            {
+                size_of_array *= SCALE_FACTOR;
+                pointer_array = (LinePointers*)realloc(pointer_array, size_of_array * sizeof(LinePointers));
+            }
+
             pointer_array[number_of_line] = temp_pointer;
 
             Log(LogLevel_INFO, "Length of line %lu", temp_pointer.length_of_line);
@@ -59,35 +76,35 @@ int processeBuffer(Text* text)
 
 void callBubbleSortBackward(Text text)
 {
-    bubble_sort(text.line_pointers,
-                text.number_of_lines,
-                sizeof(LinePointers),
-                myStrcmpBackwardPointer);
-}
-
-
-void callBubbleSortForward(Text text)
-{
-    bubble_sort(text.line_pointers,
-                text.number_of_lines,
-                sizeof(LinePointers),
-                myStrcmpForwardPointer);
-}
-
-
-void callQuickSortBackward(Text text)
-{
-    quick_sort(text.line_pointers,
+    bubbleSort(text.line_pointers,
                text.number_of_lines,
                sizeof(LinePointers),
                myStrcmpBackwardPointer);
 }
 
 
-void callQuickSortForward(Text text)
+void callBubbleSortForward(Text text)
 {
-    quick_sort(text.line_pointers,
+    bubbleSort(text.line_pointers,
                text.number_of_lines,
                sizeof(LinePointers),
                myStrcmpForwardPointer);
+}
+
+
+void callQuickSortBackward(Text text)
+{
+    quickSort(text.line_pointers,
+              text.number_of_lines,
+              sizeof(LinePointers),
+              myStrcmpBackwardPointer);
+}
+
+
+void callQuickSortForward(Text text)
+{
+    quickSort(text.line_pointers,
+              text.number_of_lines,
+              sizeof(LinePointers),
+              myStrcmpForwardPointer);
 }

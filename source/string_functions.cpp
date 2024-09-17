@@ -70,41 +70,47 @@ int myStrcmpBackwardPointer(const void* pointer_to_first_string,
 int myStrcmpForwardPointer(const void* pointer_to_first_string,
                            const void* pointer_to_second_string)
 {
-    const char* p1 = ((const LinePointers*)pointer_to_first_string)->start_of_line;
-    const char* p2 = ((const LinePointers*)pointer_to_second_string)->start_of_line;
+    const LinePointers* first_pointer  = ((const LinePointers*)pointer_to_first_string);
+    const LinePointers* second_pointer = ((const LinePointers*)pointer_to_second_string);
 
-    while (*p1 != '\0'
-        && *p2 != '\0')
+    const char* p1 = first_pointer->start_of_line;
+    const char* p2 = second_pointer->start_of_line;
+
+    size_t first_shift  = 0;
+    size_t second_shift = 0;
+
+    while (p1[first_shift] != '\0'
+        && p2[second_shift] != '\0')
     {
-        while (!isalpha(*p1))
+        while (!isalpha(p1[first_shift]) && p1[first_shift] != '\0')
         {
-            p1++;
+            first_shift++;
         }
 
-        while (!isalpha(*p2))
+        while (!isalpha(p2[second_shift]) && p2[second_shift] != '\0')
         {
-            p2++;
+            second_shift++;
         }
 
-        if (*p1 == '\0' || *p2 == '\0')
+        if (p1[first_shift] == '\0' || p2[second_shift] == '\0')
         {
             break;
         }
 
 
-        if (tolower(*p1) != tolower(*p2))
+        if (tolower(p1[first_shift]) != tolower(p2[second_shift]))
         {
-            return tolower(*p1) - tolower(*p2);
+            return tolower(p1[first_shift]) - tolower(p2[second_shift]);
         }
 
-        p1++;
-        p2++;
+        first_shift++;
+        second_shift++;
     }
 
-    if (*p1 == '\0' && *p2 == '\0')
+    if (p1[first_shift] == '\0' && p2[second_shift] == '\0')
     {
         return 0;
     }
 
-    return tolower(*p1) - tolower(*p2);
+    return tolower(p1[first_shift]) - tolower(p2[second_shift]);
 }

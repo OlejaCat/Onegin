@@ -41,6 +41,8 @@ int forward_sort(const char** argv)
 
     writeDataToFile(text_of_file, argv[3]);
 
+    clearAllBuffers(text_of_file);
+
     return EXIT_SUCCESS;
 }
 
@@ -59,6 +61,8 @@ int reverse_sort(const char** argv)
     // callBubbleSortBackward(text_of_file);
 
     writeDataToFile(text_of_file, argv[3]);
+
+    clearAllBuffers(text_of_file);
 
     return EXIT_SUCCESS;
 }

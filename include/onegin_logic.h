@@ -19,6 +19,11 @@ typedef struct Text
     size_t        number_of_lines;
 } Text;
 
+//-----------------------------
+//!
+//-----------------------------
+int clearAllBuffers(Text text);
+
 //----------------------------------------
 //! Gets text and turn it into structure
 //!
