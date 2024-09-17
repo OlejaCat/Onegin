@@ -1,10 +1,10 @@
 #include "string_functions.h"
 
 #include <stdio.h>
-#include <assert.h>
 #include <ctype.h>
 
 #include "onegin_logic.h"
+#include "helpful_functions.h"
 #include "logger.h"
 
 
@@ -20,6 +20,9 @@ void print_table_of_pointers(Text text_information)
 int myStrcmpBackwardPointer(const void* pointer_to_first_string,
                             const void* pointer_to_second_string)
 {
+    assertStrict(pointer_to_first_string  != NULL);
+    assertStrict(pointer_to_second_string != NULL);
+
     const LinePointers* first_pointer  = (const LinePointers*)pointer_to_first_string;
     const LinePointers* second_pointer = (const LinePointers*)pointer_to_second_string;
 
@@ -70,6 +73,9 @@ int myStrcmpBackwardPointer(const void* pointer_to_first_string,
 int myStrcmpForwardPointer(const void* pointer_to_first_string,
                            const void* pointer_to_second_string)
 {
+    assertStrict(pointer_to_first_string  != NULL);
+    assertStrict(pointer_to_second_string != NULL);
+
     const LinePointers* first_pointer  = ((const LinePointers*)pointer_to_first_string);
     const LinePointers* second_pointer = ((const LinePointers*)pointer_to_second_string);
 

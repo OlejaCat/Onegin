@@ -101,8 +101,8 @@ FileState writeOriginalDataToFile(Text        text_information,
     for (size_t element = 0; element < text_information.size_of_file; element++)
     {
         output_data[element] = text_information.text_buffer[element] == '\0'
-                               ? '\n'
-                               : text_information.text_buffer[element];
+                                    ? '\n'
+                                    : text_information.text_buffer[element];
     }
 
     size_t writed = fwrite(output_data,

@@ -7,6 +7,7 @@
 #include "work_with_files.h"
 #include "constants.h"
 #include "onegin_logic.h"
+#include "helpful_functions.h"
 
 
 void printFewArguments(void)
@@ -28,6 +29,8 @@ void printNoSuchFile(void)
 
 int forward_sort(const char** argv)
 {
+    assertStrict(argv != NULL);
+
     Text text_of_file = {};
     FileState response = readDataFromFile(&text_of_file, argv[2]);
     if (response == FileState_NO_SUCH_FILE)
@@ -49,6 +52,8 @@ int forward_sort(const char** argv)
 
 int reverse_sort(const char** argv)
 {
+    assertStrict(argv != NULL);
+
     Text text_of_file = {};
     FileState response = readDataFromFile(&text_of_file, argv[2]);
     if (response == FileState_NO_SUCH_FILE)
@@ -71,6 +76,9 @@ int reverse_sort(const char** argv)
 void emptyInputMessage(const char* input_parameter,
                        const char* solver)
 {
+    assertStrict(input_parameter != NULL);
+    assertStrict(solver          != NULL);
+
     printf("Unknown parameter: '%s'. Type %s %s for help.\n",
            input_parameter,
            solver,

@@ -64,6 +64,8 @@ void bubbleSort(void*              data,
                 size_t             size_of_element,
                 compare_function_t compare_function)
 {
+    assertStrict(data != NULL);
+
     uint8_t* data_ = (uint8_t*)data;
 
     bool swapped = false;
@@ -114,23 +116,23 @@ static size_t quickSortPartition(uint8_t*           data,
     }
 
     Log(LogLevel_INFO, "pivot: %d", *pivot);
-    int i = -1;
+    int left_element = -1;
 
-    for (int j = 0; j < size_ - 1; j++)
+    for (int right_element = 0; right_element < size_ - 1; right_element++)
     {
-        if (compare_function(pivot, data + j * size_of_element_) > 0)
+        if (compare_function(pivot, data + right_element * size_of_element_) > 0)
         {
-            i++;
-            swap(data + i * size_of_element_,
-                 data + j * size_of_element_,
+            left_element++;
+            swap(data + left_element * size_of_element_,
+                 data + right_element * size_of_element_,
                  size_of_element);
         }
     }
 
-    swap(data + (i + 1) * size_of_element_,
+    swap(data + (left_element + 1) * size_of_element_,
          data + (size_ - 1) * size_of_element_,
          size_of_element);
 
-    Log(LogLevel_INFO, "partition is: %d", i + 1);
-    return (size_t)i + 1;
+    Log(LogLevel_INFO, "partition is: %d", left_element + 1);
+    return (size_t)left_element + 1;
 }

@@ -6,7 +6,7 @@
 int main(const int argc, const char** argv)
 {
     openLogFile("logger.txt");
-    Log(LogLevel_DEBUG, "Start");
+    Log(LogLevel_DEBUG, "Start program");
 
     if (argc <= 1)
     {
