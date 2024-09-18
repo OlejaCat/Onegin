@@ -2,12 +2,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
 #include <stdbool.h>
 
 #include "logger.h"
 #include "sorting_algorithms.h"
 #include "string_functions.h"
+#include "my_asserts.h"
 
 const size_t SIZE_OF_POINT_ARRAY = 4;
 const size_t SCALE_FACTOR        = 2;
@@ -15,7 +15,7 @@ const size_t SCALE_FACTOR        = 2;
 
 int processeBuffer(Text* text)
 {
-    assert(text != NULL);
+    assertStrict(text != NULL);
 
     size_t size_of_array = SIZE_OF_POINT_ARRAY;
     LinePointers* pointer_array = (LinePointers*)calloc(size_of_array, sizeof(LinePointers));

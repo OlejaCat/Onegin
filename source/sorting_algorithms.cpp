@@ -1,10 +1,10 @@
 #include "sorting_algorithms.h"
 
 #include <stdbool.h>
-#include <assert.h>
 #include <stdint.h>
 
 #include "helpful_functions.h"
+#include "my_asserts.h"
 #include "logger.h"
 
 

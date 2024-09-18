@@ -7,7 +7,7 @@
 #include "work_with_files.h"
 #include "constants.h"
 #include "onegin_logic.h"
-#include "helpful_functions.h"
+#include "my_asserts.h"
 
 
 void printFewArguments(void)

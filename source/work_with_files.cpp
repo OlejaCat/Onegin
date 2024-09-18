@@ -7,6 +7,7 @@
 #include "logger.h"
 #include "helpful_functions.h"
 
+
 FileState readDataFromFile(Text*       fill_text_information,
                            const char* input_file_path)
 {

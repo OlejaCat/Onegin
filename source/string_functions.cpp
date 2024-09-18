@@ -4,7 +4,7 @@
 #include <ctype.h>
 
 #include "onegin_logic.h"
-#include "helpful_functions.h"
+#include "my_asserts.h"
 #include "logger.h"
 
 
@@ -102,7 +102,6 @@ int myStrcmpForwardPointer(const void* pointer_to_first_string,
         {
             break;
         }
-
 
         if (tolower(p1[first_shift]) != tolower(p2[second_shift]))
         {

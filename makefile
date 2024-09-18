@@ -27,8 +27,8 @@ CFLAGS += $(INCLUDE) $(ASAN_FLAGS) -DDEBUG -D_FORTIFY_SOURCES=3 -ggdb -g3
 
 all: base
 
-base: main.o onegin_logic.o sorting_algorithms.o string_functions.o work_with_files.o helpful_functions.o user_interaction.o logger.o
-	@$(CC) $(LINK_FLAGS_RELEASE) $(RELEASE_FLAGS) main.o onegin_logic.o sorting_algorithms.o string_functions.o work_with_files.o helpful_functions.o user_interaction.o logger.o -o onegin
+base: main.o onegin_logic.o sorting_algorithms.o string_functions.o work_with_files.o helpful_functions.o user_interaction.o logger.o my_asserts.o work_with_doubles.o
+	@$(CC) $(LINK_FLAGS_RELEASE) $(RELEASE_FLAGS) main.o onegin_logic.o sorting_algorithms.o string_functions.o work_with_files.o helpful_functions.o user_interaction.o logger.o my_asserts.o work_with_doubles.o -o onegin
 
 main.o: source/main.cpp
 	@$(CC) $(RELEASE_FLAGS) -c source/main.cpp
@@ -53,6 +53,12 @@ helpful_functions.o: MyMiniLib/source/helpful_functions.cpp
 
 logger.o: MyMiniLib/source/logger.cpp
 	@$(CC) $(RELEASE_FLAGS) -c MyMiniLib/source/logger.cpp
+
+my_asserts.o: MyMiniLib/source/my_asserts.cpp
+	@$(CC) $(RELEASE_FLAGS) -c MyMiniLib/source/my_asserts.cpp
+
+work_with_doubles.o: MyMiniLib/source/work_with_doubles.cpp
+	@$(CC) $(RELEASE_FLAGS) -c MyMiniLib/source/work_with_doubles.cpp
 
 clean:
 	@rm -rf *.o onegin
